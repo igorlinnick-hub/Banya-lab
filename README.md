@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Banya Lab
 
-## Getting Started
+Marketing site + booking flow for Banya Lab (Oʻahu): Ukrainian banya on the ocean, retreats, healing work.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** (App Router, TypeScript)
+- **Tailwind CSS v4**
+- **Stripe Checkout** (via `/api/checkout` + webhook stub at `/api/stripe-webhook`)
+- **Calendly** embed (`NEXT_PUBLIC_CALENDLY_URL`)
+
+## Structure
+
+```
+src/
+  app/
+    page.tsx                   → main landing (all services)
+    retreats/page.tsx          → separate retreats landing with custom flow
+    book/[serviceId]/page.tsx  → per-service booking with live add-on pricing
+    api/checkout/route.ts      → Stripe Checkout session creation
+    api/stripe-webhook/route.ts → webhook handler (fill in after Stripe setup)
+    success/page.tsx · cancel/page.tsx
+  components/
+    Nav · Footer · ServiceCard · BookingForm · RetreatForm · CalendlyEmbed
+    ui/Button.tsx
+  lib/
+    services.ts                → SINGLE SOURCE OF TRUTH for services, prices, add-ons
+    stripe.ts · cn.ts · format.ts
+public/media/                  → drop photos/videos here (see README inside)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+cp .env.example .env.local     # fill in Stripe + Calendly keys
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000.
 
-## Learn More
+## Editing services & prices
 
-To learn more about Next.js, take a look at the following resources:
+All services, variants, add-ons, and retreat config live in `src/lib/services.ts`. Change a price, add an add-on, remove a service — it propagates to all pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Retreat referral links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Share `https://yoursite.com/retreats?ref=maksim` — the `ref` param is captured, shown in the UI as "booking through <host>", and passed to Stripe session metadata. 80/20 payout handled manually for now.
 
-## Deploy on Vercel
+## Media
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Placeholder SVGs are in `public/media/*/hero.svg`. Drop real images with the same path/name, or update the `hero` field in `src/lib/services.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Stripe
+
+1. Set `STRIPE_SECRET_KEY` in `.env.local`.
+2. For webhooks locally: `stripe listen --forward-to localhost:3000/api/stripe-webhook` → copy the webhook secret to `STRIPE_WEBHOOK_SECRET`.
+3. In production, register the webhook endpoint in Stripe Dashboard.
+
+## Deploy
+
+Push to GitHub → import to Vercel → set env vars → ship.
