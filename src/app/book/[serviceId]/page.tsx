@@ -1,15 +1,19 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getService, SERVICES } from "@/lib/services";
+import { getService, SERVICES, CALENDLY } from "@/lib/services";
 import { BookingForm } from "@/components/BookingForm";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { KamaainaCallout } from "@/components/KamaainaCallout";
 
-const KAMAAINA_BY_SLUG: Record<string, { price: string; detail: string }> = {
+const KAMAAINA_BY_SLUG: Record<
+  string,
+  { price: string; detail: string; bookingUrl?: string }
+> = {
   "harbor-sauna": {
     price: "$50 flat",
     detail: "2.5 hours · venik steaming + ice plunge",
+    bookingUrl: CALENDLY.kamaainaHarbor,
   },
   "friday-fireworks": {
     price: "$100 / person",
@@ -92,7 +96,11 @@ export default async function BookingPage({
 
       {kamaaina && (
         <div className="mb-8">
-          <KamaainaCallout price={kamaaina.price} detail={kamaaina.detail} />
+          <KamaainaCallout
+            price={kamaaina.price}
+            detail={kamaaina.detail}
+            bookingUrl={kamaaina.bookingUrl}
+          />
         </div>
       )}
 
@@ -103,7 +111,7 @@ export default async function BookingPage({
         <p className="text-stone-400 mb-6 text-sm">
           Choose an available time. We&apos;ll confirm after payment.
         </p>
-        <CalendlyEmbed />
+        <CalendlyEmbed url={service.calendlyUrl} />
       </section>
     </div>
   );

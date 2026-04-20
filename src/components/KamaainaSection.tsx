@@ -1,3 +1,5 @@
+import { CALENDLY } from "@/lib/services";
+
 export function KamaainaSection() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-16">
@@ -13,7 +15,12 @@ export function KamaainaSection() {
           Authentic Russian banya — venik steaming and contrast ice plunge.
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-5">
+          <a
+            href={CALENDLY.kamaainaHarbor}
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-xl border border-stone-800 bg-stone-950/60 p-5 hover:border-amber-500/60 transition"
+          >
             <div className="flex items-center gap-2 mb-2">
               <span aria-hidden>♨️</span>
               <span className="font-medium text-amber-50">Harbor banya</span>
@@ -24,8 +31,16 @@ export function KamaainaSection() {
             <div className="text-sm text-stone-400">
               2.5 hours · venik steaming + ice plunge
             </div>
-          </div>
-          <div className="rounded-xl border border-stone-800 bg-stone-950/60 p-5">
+            <div className="mt-3 text-xs text-amber-400">
+              Book with ID →
+            </div>
+          </a>
+          <a
+            href={CALENDLY.fridayFireworks}
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-xl border border-stone-800 bg-stone-950/60 p-5 hover:border-amber-500/60 transition"
+          >
             <div className="flex items-center gap-2 mb-2">
               <span aria-hidden>⛵️</span>
               <span className="font-medium text-amber-50">Ocean banya</span>
@@ -39,7 +54,10 @@ export function KamaainaSection() {
             <div className="text-sm text-stone-400">
               Sunset ocean cruise + banya
             </div>
-          </div>
+            <div className="mt-3 text-xs text-amber-400">
+              Book the sunset sailing →
+            </div>
+          </a>
         </div>
         <p className="text-xs text-stone-500 mt-6">
           Please present a valid Hawaiʻi ID at check-in.

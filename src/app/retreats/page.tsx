@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { RetreatForm } from "@/components/RetreatForm";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
+import { CALENDLY } from "@/lib/services";
 
 export const metadata = {
   title: "Retreats · Banya Lab",
@@ -58,7 +59,7 @@ export default function RetreatsPage() {
         <p className="text-stone-400 mb-6 text-sm">
           Choose a day for your retreat. We&apos;ll confirm after payment.
         </p>
-        <CalendlyEmbed />
+        <CalendlyEmbed url={CALENDLY.retreat} />
       </section>
     </>
   );

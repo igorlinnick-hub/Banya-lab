@@ -33,6 +33,18 @@ export type Service = {
   addOns: AddOn[];
   variants?: ServiceVariant[];
   contact?: { name: string; instagram?: string };
+  calendlyUrl: string;
+};
+
+export const CALENDLY = {
+  fridayFireworks: "https://calendly.com/maksimzap8/friday-fireworks-boat",
+  harborSauna: "https://calendly.com/maksimzap8/harbor-sauna",
+  privateRomantic: "https://calendly.com/maksimzap8/private-boat-service",
+  oneOnOne: "https://calendly.com/maksimzap8/1-on-1-banya-ritual",
+  boatParty: "https://calendly.com/maksimzap8/sunday-boat-party",
+  retreat: "https://calendly.com/maksimzap8/banya-lab-retreat",
+  oceanCruise: "https://calendly.com/maksimzap8/ocean-cruise",
+  kamaainaHarbor: "https://calendly.com/maksimzap8/kama-aina-harbor-banya",
 };
 
 const COMMON_ADDONS = {
@@ -160,6 +172,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.photographer,
       COMMON_ADDONS.soundHealing,
     ],
+    calendlyUrl: CALENDLY.fridayFireworks,
   },
   {
     id: "harbor-sauna",
@@ -187,6 +200,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.massage,
       COMMON_ADDONS.soundHealing,
     ],
+    calendlyUrl: CALENDLY.harborSauna,
   },
   {
     id: "honeymoon",
@@ -217,6 +231,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.photographer,
       COMMON_ADDONS.soundHealing,
     ],
+    calendlyUrl: CALENDLY.privateRomantic,
   },
   {
     id: "one-on-one",
@@ -244,6 +259,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.soundHealing,
     ],
     contact: { name: "Maksim", instagram: "https://instagram.com/" },
+    calendlyUrl: CALENDLY.oneOnOne,
   },
   {
     id: "ocean-cruise",
@@ -290,6 +306,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.wine,
       COMMON_ADDONS.roses,
     ],
+    calendlyUrl: CALENDLY.oceanCruise,
   },
   {
     id: "boat-party",
@@ -336,6 +353,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.dj,
       COMMON_ADDONS.photographer,
     ],
+    calendlyUrl: CALENDLY.boatParty,
   },
 ];
 
