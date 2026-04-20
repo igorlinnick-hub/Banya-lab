@@ -38,16 +38,15 @@ export type Service = {
 const COMMON_ADDONS = {
   food: {
     id: "food-slavic",
-    name: "Slavic food spread",
-    description: "Traditional bites prepared onboard",
-    price: 35,
-    perPerson: true,
+    name: "Slavic dishes (made to order)",
+    description: "Pierogi, borscht, blini — custom menu on request",
+    price: 100,
   } satisfies AddOn,
   liveMusic: {
     id: "live-music",
     name: "Live musician",
-    description: "Acoustic set during sunset",
-    price: 350,
+    description: "Custom live songs on request",
+    price: 100,
   } satisfies AddOn,
   dj: {
     id: "dj",
@@ -86,6 +85,37 @@ const COMMON_ADDONS = {
     name: "Rose petals on the boat",
     price: 75,
   } satisfies AddOn,
+  sauna: {
+    id: "mobile-sauna",
+    name: "Mobile banya onboard",
+    description: "Hot banya setup on the boat for your session",
+    price: 200,
+  } satisfies AddOn,
+  iceBath: {
+    id: "ice-bath",
+    name: "Ice bath plunge",
+    price: 40,
+    perPerson: true,
+  } satisfies AddOn,
+  massage: {
+    id: "massage",
+    name: "Massage · Lomi-Lomi or yoga therapy",
+    description: "On-site bodywork by a certified practitioner",
+    price: 100,
+    perPerson: true,
+  } satisfies AddOn,
+  photographer: {
+    id: "photographer",
+    name: "Professional photographer",
+    description: "Underwater and aerial (drone) coverage of your session",
+    price: 200,
+  } satisfies AddOn,
+  soundHealing: {
+    id: "sound-healing",
+    name: "Sound healing",
+    description: "Guided sound therapy session onboard",
+    price: 100,
+  } satisfies AddOn,
 };
 
 export const SERVICES: Service[] = [
@@ -100,7 +130,7 @@ export const SERVICES: Service[] = [
     priceUnit: "per_person",
     schedule: "Fridays · sunset to fireworks",
     durationHours: 3,
-    hero: "/media/friday-fireworks/hero.svg",
+    hero: "/media/friday-fireworks/hero.jpg",
     includes: [
       "Ocean cruise at sunset",
       "Traditional banya session",
@@ -127,6 +157,8 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.liveMusic,
       COMMON_ADDONS.juices,
       COMMON_ADDONS.healer,
+      COMMON_ADDONS.photographer,
+      COMMON_ADDONS.soundHealing,
     ],
   },
   {
@@ -141,14 +173,20 @@ export const SERVICES: Service[] = [
     minPeople: 5,
     durationHours: 2,
     schedule: "By appointment",
-    hero: "/media/harbor-sauna/hero.svg",
+    hero: "/media/harbor-sauna/hero.jpg",
     includes: [
       "2-hour banya session",
       "Ukrainian venik healing work",
       "Ice bath plunge",
       "Natural juices",
     ],
-    addOns: [COMMON_ADDONS.food, COMMON_ADDONS.healer, COMMON_ADDONS.juices],
+    addOns: [
+      COMMON_ADDONS.food,
+      COMMON_ADDONS.healer,
+      COMMON_ADDONS.juices,
+      COMMON_ADDONS.massage,
+      COMMON_ADDONS.soundHealing,
+    ],
   },
   {
     id: "honeymoon",
@@ -161,7 +199,7 @@ export const SERVICES: Service[] = [
     priceUnit: "flat",
     schedule: "Tuesdays & Thursdays (or by request)",
     durationHours: 3,
-    hero: "/media/honeymoon/hero.svg",
+    hero: "/media/honeymoon/hero.jpg",
     includes: [
       "Fully private boat",
       "Sunset cruise",
@@ -172,9 +210,12 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.champagne,
       COMMON_ADDONS.wine,
       COMMON_ADDONS.fruits,
-      { ...COMMON_ADDONS.food, name: "Slavic food spread (for two)" },
+      { ...COMMON_ADDONS.food, name: "Slavic dishes for two (made to order)" },
       COMMON_ADDONS.liveMusic,
       COMMON_ADDONS.roses,
+      COMMON_ADDONS.massage,
+      COMMON_ADDONS.photographer,
+      COMMON_ADDONS.soundHealing,
     ],
   },
   {
@@ -188,7 +229,7 @@ export const SERVICES: Service[] = [
     priceUnit: "flat",
     durationHours: 3,
     schedule: "By appointment",
-    hero: "/media/one-on-one/hero.svg",
+    hero: "/media/one-on-one/hero.jpg",
     includes: [
       "3 hours private",
       "Venik healing ritual",
@@ -196,8 +237,59 @@ export const SERVICES: Service[] = [
       "Cold-pressed juices",
       "1-on-1 coaching conversation",
     ],
-    addOns: [COMMON_ADDONS.food, COMMON_ADDONS.fruits],
+    addOns: [
+      COMMON_ADDONS.food,
+      COMMON_ADDONS.fruits,
+      COMMON_ADDONS.massage,
+      COMMON_ADDONS.soundHealing,
+    ],
     contact: { name: "Maksim", instagram: "https://instagram.com/" },
+  },
+  {
+    id: "ocean-cruise",
+    slug: "ocean-cruise",
+    name: "Ocean Cruise",
+    tagline: "Your boat, your people, your pace",
+    description:
+      "A straight-up private ocean cruise — no theme, no schedule. Bring your people, pick your add-ons, and build the experience. Sunset, sauna, healer, food, music — it's all a la carte.",
+    basePrice: 150,
+    priceUnit: "per_person",
+    schedule: "By appointment · any day",
+    durationHours: 3,
+    hero: "/media/ocean-cruise/hero.jpg",
+    includes: ["Private charter", "Captain + crew", "Up to 3 hours on the water"],
+    variants: [
+      {
+        id: "shared",
+        name: "Join a shared cruise",
+        description: "Pool with other guests",
+        price: 150,
+        priceUnit: "per_person",
+      },
+      {
+        id: "private",
+        name: "Private charter (flat)",
+        description: "Your group only, up to 12",
+        price: 900,
+        priceUnit: "flat",
+      },
+    ],
+    addOns: [
+      COMMON_ADDONS.sauna,
+      COMMON_ADDONS.iceBath,
+      COMMON_ADDONS.healer,
+      COMMON_ADDONS.massage,
+      COMMON_ADDONS.soundHealing,
+      COMMON_ADDONS.photographer,
+      COMMON_ADDONS.food,
+      COMMON_ADDONS.fruits,
+      COMMON_ADDONS.juices,
+      COMMON_ADDONS.liveMusic,
+      COMMON_ADDONS.dj,
+      COMMON_ADDONS.champagne,
+      COMMON_ADDONS.wine,
+      COMMON_ADDONS.roses,
+    ],
   },
   {
     id: "boat-party",
@@ -210,7 +302,7 @@ export const SERVICES: Service[] = [
     priceUnit: "per_person",
     schedule: "One Sunday per month",
     durationHours: 4,
-    hero: "/media/boat-party/hero.svg",
+    hero: "/media/boat-party/hero.jpg",
     includes: [
       "Two boats",
       "DJ + disco",
@@ -238,7 +330,12 @@ export const SERVICES: Service[] = [
         priceUnit: "flat",
       },
     ],
-    addOns: [COMMON_ADDONS.food, COMMON_ADDONS.juices, COMMON_ADDONS.dj],
+    addOns: [
+      COMMON_ADDONS.food,
+      COMMON_ADDONS.juices,
+      COMMON_ADDONS.dj,
+      COMMON_ADDONS.photographer,
+    ],
   },
 ];
 
@@ -248,6 +345,9 @@ export const RETREAT_ADDONS: AddOn[] = [
   COMMON_ADDONS.healer,
   COMMON_ADDONS.juices,
   COMMON_ADDONS.fruits,
+  COMMON_ADDONS.massage,
+  COMMON_ADDONS.soundHealing,
+  COMMON_ADDONS.photographer,
 ];
 
 export const RETREAT = {

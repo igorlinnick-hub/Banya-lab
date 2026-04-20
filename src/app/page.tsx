@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
+import { KamaainaSection } from "@/components/KamaainaSection";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/services";
 
@@ -8,7 +9,7 @@ export default function Home() {
     <>
       <section className="relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-[url('/media/hero.svg')] bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-[url('/media/hero.jpg')] bg-cover bg-center opacity-40"
           aria-hidden
         />
         <div
@@ -62,6 +63,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <KamaainaSection />
 
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">

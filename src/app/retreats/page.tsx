@@ -13,7 +13,7 @@ export default function RetreatsPage() {
     <>
       <section className="relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-[url('/media/retreats/hero.svg')] bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-[url('/media/retreats/hero.jpg')] bg-cover bg-center opacity-40"
           aria-hidden
         />
         <div

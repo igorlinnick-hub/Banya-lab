@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source media (originals — only web-optimized copies in /public/media go to git)
+/Bany Lab Photos/
+/Banya Lab Videos/

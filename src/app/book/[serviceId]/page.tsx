@@ -4,6 +4,18 @@ import Link from "next/link";
 import { getService, SERVICES } from "@/lib/services";
 import { BookingForm } from "@/components/BookingForm";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
+import { KamaainaCallout } from "@/components/KamaainaCallout";
+
+const KAMAAINA_BY_SLUG: Record<string, { price: string; detail: string }> = {
+  "harbor-sauna": {
+    price: "$50 flat",
+    detail: "2.5 hours · venik steaming + ice plunge",
+  },
+  "friday-fireworks": {
+    price: "$100 / person",
+    detail: "Sunset ocean banya with Hawaiian ID",
+  },
+};
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ serviceId: s.slug }));
@@ -17,6 +29,7 @@ export default async function BookingPage({
   const { serviceId } = await params;
   const service = getService(serviceId);
   if (!service) notFound();
+  const kamaaina = KAMAAINA_BY_SLUG[service.slug];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
@@ -76,6 +89,12 @@ export default async function BookingPage({
           )}
         </div>
       </div>
+
+      {kamaaina && (
+        <div className="mb-8">
+          <KamaainaCallout price={kamaaina.price} detail={kamaaina.detail} />
+        </div>
+      )}
 
       <BookingForm service={service} />
 
