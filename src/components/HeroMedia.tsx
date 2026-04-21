@@ -2,9 +2,15 @@ type Props = {
   image: string;
   video?: string;
   intensity?: "light" | "medium";
+  fadeTop?: boolean;
 };
 
-export function HeroMedia({ image, video, intensity = "light" }: Props) {
+export function HeroMedia({
+  image,
+  video,
+  intensity = "light",
+  fadeTop = false,
+}: Props) {
   const overlay =
     intensity === "medium"
       ? "bg-gradient-to-b from-stone-950/40 via-stone-950/40 to-stone-950/80"
@@ -32,6 +38,12 @@ export function HeroMedia({ image, video, intensity = "light" }: Props) {
         />
       )}
       <div className={`absolute inset-0 ${overlay}`} aria-hidden />
+      {fadeTop && (
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-40 md:h-56 bg-gradient-to-t from-transparent to-stone-950"
+          aria-hidden
+        />
+      )}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-40 md:h-56 bg-gradient-to-b from-transparent to-stone-950"
         aria-hidden

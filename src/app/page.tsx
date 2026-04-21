@@ -98,7 +98,7 @@ export default function Home() {
       <Testimonials />
 
       <section className="relative overflow-hidden">
-        <HeroMedia image="/media/retreat-cta.jpg" intensity="light" />
+        <HeroMedia image="/media/retreat-cta.jpg" intensity="light" fadeTop />
         <div className="relative mx-auto max-w-4xl px-6 py-24 md:py-32 text-center">
           <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
             Host a retreat
