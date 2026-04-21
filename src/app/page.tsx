@@ -1,19 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ServiceCard } from "@/components/ServiceCard";
 import { KamaainaSection } from "@/components/KamaainaSection";
 import { Testimonials } from "@/components/Testimonials";
 import { HeroMedia } from "@/components/HeroMedia";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/services";
-
-const STRIP_PHOTOS = [
-  { src: "/media/story/group-boat.jpg", alt: "Banya group on the boat" },
-  { src: "/media/story/sauna.jpg", alt: "Inside the banya" },
-  { src: "/media/story/drinks.jpg", alt: "Drinks on board" },
-  { src: "/media/story/romantic.jpg", alt: "Sunset romantic cruise" },
-  { src: "/media/story/owner-2.jpg", alt: "Maksim on the water" },
-];
 
 export default function Home() {
   return (
@@ -69,25 +60,6 @@ export default function Home() {
       </section>
 
       <KamaainaSection />
-
-      <section className="relative mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {STRIP_PHOTOS.map((p) => (
-            <div
-              key={p.src}
-              className="relative aspect-square rounded-xl overflow-hidden border border-stone-800"
-            >
-              <Image
-                src={p.src}
-                alt={p.alt}
-                fill
-                sizes="(min-width: 768px) 20vw, 50vw"
-                className="object-cover hover:scale-[1.03] transition-transform duration-500"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center rounded-2xl border border-stone-800 bg-stone-950/60 overflow-hidden">
