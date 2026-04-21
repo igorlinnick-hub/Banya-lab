@@ -97,22 +97,25 @@ export default function Home() {
 
       <Testimonials />
 
-      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
-          Host a retreat
-        </p>
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-          Bring your circle to the banya
-        </h2>
-        <p className="text-stone-400 mb-8">
-          Full-day wellness retreats for up to 12. Bring your own group — or
-          partner with us as a co-host and we&apos;ll fill the seats.
-        </p>
-        <Link href="/retreats">
-          <Button size="lg" variant="primary">
-            See retreat options
-          </Button>
-        </Link>
+      <section className="relative overflow-hidden">
+        <HeroMedia image="/media/retreat-cta.jpg" intensity="light" />
+        <div className="relative mx-auto max-w-4xl px-6 py-24 md:py-32 text-center">
+          <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
+            Host a retreat
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-amber-50 mb-4">
+            Bring your circle to the banya
+          </h2>
+          <p className="text-stone-300 mb-8 max-w-2xl mx-auto">
+            Full-day wellness retreats for up to 12. Bring your own group — or
+            partner with us as a co-host and we&apos;ll fill the seats.
+          </p>
+          <Link href="/retreats">
+            <Button size="lg" variant="primary">
+              See retreat options
+            </Button>
+          </Link>
+        </div>
       </section>
     </>
   );
