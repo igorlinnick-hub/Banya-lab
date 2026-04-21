@@ -30,6 +30,7 @@ export type Service = {
   schedule?: string;
   hero: string;
   heroVideo?: string;
+  comingSoon?: boolean;
   includes: string[];
   addOns: AddOn[];
   variants?: ServiceVariant[];
@@ -275,7 +276,7 @@ export const SERVICES: Service[] = [
     schedule: "By appointment · any day",
     durationHours: 3,
     hero: "/media/ocean-cruise/hero.jpg",
-    heroVideo: "/media/location.mp4",
+    heroVideo: "/media/drone-boat.mp4",
     includes: ["Private charter", "Captain + crew", "Up to 3 hours on the water"],
     variants: [
       {
@@ -323,7 +324,7 @@ export const SERVICES: Service[] = [
     schedule: "One Sunday per month",
     durationHours: 4,
     hero: "/media/boat-party/hero.jpg",
-    heroVideo: "/media/drone-boat.mp4",
+    comingSoon: true,
     includes: [
       "Two boats",
       "DJ + disco",
