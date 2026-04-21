@@ -46,14 +46,28 @@ export default async function BookingPage({
 
       <div className="mt-6 grid md:grid-cols-2 gap-8 mb-12">
         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900">
-          <Image
-            src={service.hero}
-            alt={service.name}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-            priority
-          />
+          {service.heroVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={service.hero}
+              aria-label={service.name}
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={service.heroVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <Image
+              src={service.hero}
+              alt={service.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
+          )}
         </div>
         <div>
           <h1 className="text-4xl md:text-5xl font-semibold text-amber-50">

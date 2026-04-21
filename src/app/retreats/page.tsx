@@ -35,7 +35,7 @@ export default async function RetreatsPage({
         <section className="relative overflow-hidden">
           <HeroMedia
             image="/media/retreats/hero.jpg"
-            video="/media/drone-boat.mp4"
+            video="/media/location.mp4"
             intensity="light"
           />
           <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-28 text-center">
@@ -64,7 +64,7 @@ export default async function RetreatsPage({
       <section className="relative overflow-hidden">
         <HeroMedia
           image="/media/retreats/hero.jpg"
-          video="/media/drone-boat.mp4"
+          video="/media/location.mp4"
           intensity="light"
         />
         <div className="relative mx-auto max-w-5xl px-6 py-24 md:py-36 text-center">

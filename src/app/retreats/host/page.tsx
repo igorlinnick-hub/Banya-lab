@@ -13,7 +13,7 @@ export default function RetreatHostPage() {
       <section className="relative overflow-hidden">
         <HeroMedia
           image="/media/retreats/hero.jpg"
-          video="/media/drone-boat.mp4"
+          video="/media/location.mp4"
           intensity="light"
         />
         <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-28 text-center">

@@ -20,13 +20,27 @@ export function ServiceCard({ service }: { service: Service }) {
       className="group flex flex-col rounded-2xl overflow-hidden border border-stone-800 bg-stone-950 hover:border-amber-500/60 transition"
     >
       <div className="relative aspect-[4/3] bg-stone-900">
-        <Image
-          src={service.hero}
-          alt={service.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover opacity-80 group-hover:opacity-100 transition"
-        />
+        {service.heroVideo ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={service.hero}
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
+          >
+            <source src={service.heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={service.hero}
+            alt={service.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover opacity-80 group-hover:opacity-100 transition"
+          />
+        )}
       </div>
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-4">

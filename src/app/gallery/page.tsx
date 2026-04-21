@@ -32,9 +32,14 @@ const SHOTS: Shot[] = [
   },
   {
     src: "/media/retreats/hero.jpg",
-    alt: "Drone view · retreat boat",
+    alt: "Ala Wai location · the harbor",
     aspect: "wide",
-    video: "/media/drone-boat.mp4",
+    video: "/media/location.mp4",
+  },
+  {
+    src: "/media/story.jpg",
+    alt: "The story · Ukrainian banya in Oʻahu",
+    aspect: "tall",
   },
   {
     src: "/media/honeymoon/hero.jpg",

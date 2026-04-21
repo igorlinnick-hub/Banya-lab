@@ -43,3 +43,7 @@ next-env.d.ts
 # raw source media (originals — only web-optimized copies in /public/media go to git)
 /Bany Lab Photos/
 /Banya Lab Videos/
+/General photo.jpg
+/General top photo.jpg
+/Location video.mp4
+/firework-blast-*.jpg

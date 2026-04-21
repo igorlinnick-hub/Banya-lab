@@ -10,11 +10,7 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <HeroMedia
-          image="/media/hero.jpg"
-          video="/media/banya-hero.mp4"
-          intensity="light"
-        />
+        <HeroMedia image="/media/hero.jpg" intensity="light" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40 text-center">
           <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-6">
             Oʻahu · Hawaiʻi
@@ -64,6 +60,51 @@ export default function Home() {
       </section>
 
       <KamaainaSection />
+
+      <section className="relative mx-auto max-w-6xl px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-stone-800">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/media/story.jpg"
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/media/banya-hero.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div>
+            <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
+              The story
+            </p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-amber-50 mb-5">
+              Born in Ukraine. Practiced in the Pacific.
+            </h2>
+            <p className="text-stone-300 mb-4">
+              Banya is older than any country it passes through — a ritual of
+              heat, steam, and cold water that the Slavic world has been doing
+              for a thousand years. Done right, it opens the breath, clears the
+              body, and puts the mind down for a minute.
+            </p>
+            <p className="text-stone-400 mb-4">
+              Maksim grew up with it and trained in the Ukrainian school of
+              venik work — the guided whisking with bundled oak, birch, and
+              eucalyptus that turns a hot room into real bodywork. In 2024 he
+              brought the practice to Oʻahu, where the ocean does for the plunge
+              what the river does back home.
+            </p>
+            <p className="text-stone-400">
+              Every Banya Lab session is the same three-part rhythm: fire,
+              water, breath. What changes is where you do it — harbor dock,
+              private boat, sunset cruise, Friday fireworks, or a full-day
+              retreat. The form is honest. The setting is Hawaiʻi.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Testimonials />
 
