@@ -383,3 +383,12 @@ export const RETREAT = {
 export function getService(slug: string) {
   return SERVICES.find((s) => s.slug === slug);
 }
+
+export function getCalendlyForService(serviceId: string): string | undefined {
+  const direct = SERVICES.find((s) => s.id === serviceId);
+  if (direct) return direct.calendlyUrl;
+  if (serviceId === "retreat-private" || serviceId === "retreat-attendee") {
+    return CALENDLY.retreat;
+  }
+  return undefined;
+}

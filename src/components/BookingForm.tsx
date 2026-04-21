@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { usd } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
 import type { Service } from "@/lib/services";
+import { readUtm } from "@/components/UtmCapture";
 
 type CartItem = {
   id: string;
@@ -92,6 +93,7 @@ export function BookingForm({ service }: { service: Service }) {
           metadata: {
             people: String(people),
             variant: variant?.id ?? "",
+            ...readUtm(),
           },
         }),
       });

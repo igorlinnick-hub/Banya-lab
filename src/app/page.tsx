@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
 import { KamaainaSection } from "@/components/KamaainaSection";
+import { Testimonials } from "@/components/Testimonials";
+import { HeroMedia } from "@/components/HeroMedia";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/services";
 
@@ -8,13 +10,10 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-[url('/media/hero.jpg')] bg-cover bg-center opacity-40"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-stone-950/60 via-stone-950/70 to-stone-950"
-          aria-hidden
+        <HeroMedia
+          image="/media/hero.jpg"
+          video="/media/banya-hero.mp4"
+          intensity="light"
         />
         <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40 text-center">
           <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-6">
@@ -65,6 +64,8 @@ export default function Home() {
       </section>
 
       <KamaainaSection />
+
+      <Testimonials />
 
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
