@@ -80,12 +80,12 @@ export function Footer() {
             <li>Oʻahu, Hawaiʻi</li>
             <li>
               <a
-                href="https://instagram.com/banyalab"
+                href="https://instagram.com/banya_lab_hawaii"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-amber-200"
               >
-                Instagram · @banyalab
+                Instagram · @banya_lab_hawaii
               </a>
             </li>
           </ul>

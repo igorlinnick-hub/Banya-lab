@@ -260,7 +260,7 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.massage,
       COMMON_ADDONS.soundHealing,
     ],
-    contact: { name: "Maksim", instagram: "https://instagram.com/" },
+    contact: { name: "Maksim", instagram: "https://instagram.com/banya_lab_hawaii" },
     calendlyUrl: CALENDLY.oneOnOne,
   },
   {
