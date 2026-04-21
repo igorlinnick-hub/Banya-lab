@@ -7,8 +7,8 @@ type Props = {
 export function HeroMedia({ image, video, intensity = "light" }: Props) {
   const overlay =
     intensity === "medium"
-      ? "bg-gradient-to-b from-stone-950/40 via-stone-950/50 to-stone-950"
-      : "bg-gradient-to-b from-stone-950/15 via-stone-950/30 to-stone-950/90";
+      ? "bg-gradient-to-b from-stone-950/40 via-stone-950/40 to-stone-950/80"
+      : "bg-gradient-to-b from-stone-950/15 via-stone-950/25 to-stone-950/70";
 
   return (
     <>
@@ -32,6 +32,10 @@ export function HeroMedia({ image, video, intensity = "light" }: Props) {
         />
       )}
       <div className={`absolute inset-0 ${overlay}`} aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 md:h-56 bg-gradient-to-b from-transparent to-stone-950"
+        aria-hidden
+      />
     </>
   );
 }
