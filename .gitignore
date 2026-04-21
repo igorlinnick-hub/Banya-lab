@@ -43,7 +43,19 @@ next-env.d.ts
 # raw source media (originals — only web-optimized copies in /public/media go to git)
 /Bany Lab Photos/
 /Banya Lab Videos/
+/*.HEIC
+/*.heic
 /General photo.jpg
 /General top photo.jpg
 /Location video.mp4
 /firework-blast-*.jpg
+/Champagne bottle.jpg
+/Dolphins boat upt.mov
+/Live musician.jpg
+/Lomi Lomi massage.jpg
+/Natural cold-pressed juices.jpeg
+/Photographer.jpg
+/Rose petals on the boat.jpg
+/Seasonal fruit platter.jpeg
+/Sound bath.jpg
+/Wine bottle.JPG

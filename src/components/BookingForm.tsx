@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { usd } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
 import type { Service } from "@/lib/services";
@@ -217,19 +218,32 @@ export function BookingForm({ service }: { service: Service }) {
                     key={a.id}
                     className="flex items-center justify-between gap-4 rounded-xl border border-stone-800 p-4"
                   >
-                    <div>
-                      <div className="font-medium text-amber-50">{a.name}</div>
-                      {a.description && (
-                        <div className="text-sm text-stone-400 mt-0.5">
-                          {a.description}
+                    <div className="flex items-center gap-4 min-w-0">
+                      {a.image && (
+                        <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden bg-stone-900 shrink-0">
+                          <Image
+                            src={a.image}
+                            alt={a.name}
+                            fill
+                            sizes="80px"
+                            className="object-cover"
+                          />
                         </div>
                       )}
-                      <div className="text-xs text-stone-500 mt-1">
-                        {usd(a.price)}
-                        {a.perPerson ? " / person" : ""}
+                      <div className="min-w-0">
+                        <div className="font-medium text-amber-50">{a.name}</div>
+                        {a.description && (
+                          <div className="text-sm text-stone-400 mt-0.5">
+                            {a.description}
+                          </div>
+                        )}
+                        <div className="text-xs text-stone-500 mt-1">
+                          {usd(a.price)}
+                          {a.perPerson ? " / person" : ""}
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 shrink-0">
                       <Button
                         type="button"
                         variant="outline"

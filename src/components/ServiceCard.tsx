@@ -16,27 +16,13 @@ function priceLabel(s: Service) {
 function Media({ service }: { service: Service }) {
   return (
     <div className="relative aspect-[4/3] bg-stone-900">
-      {service.heroVideo ? (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={service.hero}
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover opacity-90 transition group-hover:opacity-100"
-        >
-          <source src={service.heroVideo} type="video/mp4" />
-        </video>
-      ) : (
-        <Image
-          src={service.hero}
-          alt={service.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover opacity-80 transition group-hover:opacity-100"
-        />
-      )}
+      <Image
+        src={service.hero}
+        alt={service.name}
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover opacity-80 transition group-hover:opacity-100"
+      />
       {service.comingSoon && (
         <>
           <div className="absolute inset-0 bg-stone-950/50" aria-hidden />

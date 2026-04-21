@@ -103,7 +103,7 @@ export default function GalleryPage() {
                   muted
                   loop
                   playsInline
-                  poster={shot.src}
+                  preload="auto"
                   aria-label={shot.alt}
                   className="absolute inset-0 w-full h-full object-cover"
                 >

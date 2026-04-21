@@ -52,7 +52,7 @@ export default async function BookingPage({
               muted
               loop
               playsInline
-              poster={service.hero}
+              preload="auto"
               aria-label={service.name}
               className="absolute inset-0 w-full h-full object-cover"
             >

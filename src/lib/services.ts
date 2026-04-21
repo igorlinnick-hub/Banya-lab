@@ -6,6 +6,7 @@ export type AddOn = {
   description?: string;
   price: number;
   perPerson?: boolean;
+  image?: string;
 };
 
 export type ServiceVariant = {
@@ -55,61 +56,66 @@ const COMMON_ADDONS = {
     name: "Slavic dishes (made to order)",
     description: "Pierogi, borscht, blini — custom menu on request",
     price: 100,
+    image: "/media/addons/food.jpg",
   } satisfies AddOn,
   liveMusic: {
     id: "live-music",
     name: "Live musician",
     description: "Custom live songs on request",
     price: 100,
-  } satisfies AddOn,
-  dj: {
-    id: "dj",
-    name: "DJ set",
-    price: 400,
+    image: "/media/addons/live-music.jpg",
   } satisfies AddOn,
   juices: {
     id: "natural-juices",
     name: "Natural cold-pressed juices",
     price: 12,
     perPerson: true,
+    image: "/media/addons/juices.jpg",
   } satisfies AddOn,
   healer: {
     id: "healer-session",
     name: "Full healer session (Ukrainian venik)",
     description: "Maksim's signature healing work with oak/birch veniks",
     price: 250,
+    image: "/media/addons/healer.jpg",
   } satisfies AddOn,
   champagne: {
     id: "champagne",
     name: "Champagne bottle",
     price: 120,
+    image: "/media/addons/champagne.jpg",
   } satisfies AddOn,
   wine: {
     id: "fine-wine",
     name: "Fine wine bottle",
     price: 95,
+    image: "/media/addons/wine.jpg",
   } satisfies AddOn,
   fruits: {
     id: "fruit-platter",
     name: "Seasonal fruit platter",
     price: 45,
+    image: "/media/addons/fruit.jpg",
   } satisfies AddOn,
   roses: {
     id: "roses",
     name: "Rose petals on the boat",
     price: 75,
+    image: "/media/addons/roses.jpg",
   } satisfies AddOn,
   sauna: {
     id: "mobile-sauna",
     name: "Mobile banya onboard",
     description: "Hot banya setup on the boat for your session",
     price: 200,
+    image: "/media/addons/mobile-sauna.jpg",
   } satisfies AddOn,
   iceBath: {
     id: "ice-bath",
     name: "Ice bath plunge",
     price: 40,
     perPerson: true,
+    image: "/media/addons/ice-bath.jpg",
   } satisfies AddOn,
   massage: {
     id: "massage",
@@ -117,18 +123,21 @@ const COMMON_ADDONS = {
     description: "On-site bodywork by a certified practitioner",
     price: 100,
     perPerson: true,
+    image: "/media/addons/massage.jpg",
   } satisfies AddOn,
   photographer: {
     id: "photographer",
     name: "Professional photographer",
     description: "Underwater and aerial (drone) coverage of your session",
     price: 200,
+    image: "/media/addons/photographer.jpg",
   } satisfies AddOn,
   soundHealing: {
     id: "sound-healing",
     name: "Sound healing",
     description: "Guided sound therapy session onboard",
     price: 100,
+    image: "/media/addons/sound-healing.jpg",
   } satisfies AddOn,
 };
 
@@ -248,6 +257,7 @@ export const SERVICES: Service[] = [
     durationHours: 3,
     schedule: "By appointment",
     hero: "/media/one-on-one/hero.jpg",
+    heroVideo: "/media/banya-hero.mp4",
     includes: [
       "3 hours private",
       "Venik healing ritual",
@@ -305,7 +315,6 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.fruits,
       COMMON_ADDONS.juices,
       COMMON_ADDONS.liveMusic,
-      COMMON_ADDONS.dj,
       COMMON_ADDONS.champagne,
       COMMON_ADDONS.wine,
       COMMON_ADDONS.roses,
@@ -355,7 +364,6 @@ export const SERVICES: Service[] = [
     addOns: [
       COMMON_ADDONS.food,
       COMMON_ADDONS.juices,
-      COMMON_ADDONS.dj,
       COMMON_ADDONS.photographer,
     ],
     calendlyUrl: CALENDLY.boatParty,

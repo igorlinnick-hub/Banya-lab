@@ -1,10 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ServiceCard } from "@/components/ServiceCard";
 import { KamaainaSection } from "@/components/KamaainaSection";
 import { Testimonials } from "@/components/Testimonials";
 import { HeroMedia } from "@/components/HeroMedia";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/services";
+
+const STRIP_PHOTOS = [
+  { src: "/media/story/group-boat.jpg", alt: "Banya group on the boat" },
+  { src: "/media/story/sauna.jpg", alt: "Inside the banya" },
+  { src: "/media/story/drinks.jpg", alt: "Drinks on board" },
+  { src: "/media/story/romantic.jpg", alt: "Sunset romantic cruise" },
+  { src: "/media/story/owner-2.jpg", alt: "Maksim on the water" },
+];
 
 export default function Home() {
   return (
@@ -61,46 +70,54 @@ export default function Home() {
 
       <KamaainaSection />
 
-      <section className="relative mx-auto max-w-6xl px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-stone-800">
+      <section className="relative mx-auto max-w-6xl px-6 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          {STRIP_PHOTOS.map((p) => (
+            <div
+              key={p.src}
+              className="relative aspect-square rounded-xl overflow-hidden border border-stone-800"
+            >
+              <Image
+                src={p.src}
+                alt={p.alt}
+                fill
+                sizes="(min-width: 768px) 20vw, 50vw"
+                className="object-cover hover:scale-[1.03] transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center rounded-2xl border border-stone-800 bg-stone-950/60 overflow-hidden">
+          <div className="relative aspect-video md:aspect-[4/3] md:h-full">
             <video
               autoPlay
               muted
               loop
               playsInline
-              poster="/media/story.jpg"
+              preload="auto"
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/media/banya-hero.mp4" type="video/mp4" />
+              <source src="/media/location.mp4" type="video/mp4" />
             </video>
           </div>
-          <div>
+          <div className="p-8 md:pr-10">
             <p className="uppercase tracking-[0.3em] text-amber-400 text-xs mb-3">
-              The story
+              Location
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-amber-50 mb-5">
-              Born in Ukraine. Practiced in the Pacific.
+            <h2 className="text-2xl md:text-3xl font-semibold text-amber-50 mb-3">
+              Ala Wai Harbor · Honolulu, Oʻahu
             </h2>
-            <p className="text-stone-300 mb-4">
-              Banya is older than any country it passes through — a ritual of
-              heat, steam, and cold water that the Slavic world has been doing
-              for a thousand years. Done right, it opens the breath, clears the
-              body, and puts the mind down for a minute.
+            <p className="text-stone-300 mb-2">
+              Sessions launch from Ala Wai Harbor, five minutes from Waikiki.
+              Dockside banya, ocean plunges, sunset cruises — all from the same
+              slip.
             </p>
-            <p className="text-stone-400 mb-4">
-              Maksim grew up with it and trained in the Ukrainian school of
-              venik work — the guided whisking with bundled oak, birch, and
-              eucalyptus that turns a hot room into real bodywork. In 2024 he
-              brought the practice to Oʻahu, where the ocean does for the plunge
-              what the river does back home.
-            </p>
-            <p className="text-stone-400">
-              Every Banya Lab session is the same three-part rhythm: fire,
-              water, breath. What changes is where you do it — harbor dock,
-              private boat, sunset cruise, Friday fireworks, or a full-day
-              retreat. The form is honest. The setting is Hawaiʻi.
+            <p className="text-sm text-stone-500">
+              Exact slip number sent with your booking confirmation.
             </p>
           </div>
         </div>

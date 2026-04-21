@@ -18,7 +18,7 @@ export function HeroMedia({ image, video, intensity = "light" }: Props) {
           muted
           loop
           playsInline
-          poster={image}
+          preload="auto"
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover opacity-80"
         >
