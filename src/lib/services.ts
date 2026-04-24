@@ -143,6 +143,34 @@ const COMMON_ADDONS = {
 
 export const SERVICES: Service[] = [
   {
+    id: "harbor-sauna",
+    slug: "harbor-sauna",
+    name: "Harbor Sauna Session",
+    tagline: "Dockside banya, no cruise — pure healing work",
+    description:
+      "Two-hour dockside banya with Ukrainian venik healing, ice bath, and natural cold-pressed juices. Groups of 5 or more.",
+    basePrice: 30,
+    priceUnit: "per_person",
+    minPeople: 5,
+    durationHours: 2,
+    schedule: "By appointment",
+    hero: "/media/harbor-sauna/hero.jpg",
+    includes: [
+      "2-hour banya session",
+      "Ukrainian venik healing work",
+      "Ice bath plunge",
+      "Natural juices",
+    ],
+    addOns: [
+      COMMON_ADDONS.food,
+      COMMON_ADDONS.healer,
+      COMMON_ADDONS.juices,
+      COMMON_ADDONS.massage,
+      COMMON_ADDONS.soundHealing,
+    ],
+    calendlyUrl: CALENDLY.harborSauna,
+  },
+  {
     id: "friday-fireworks",
     slug: "friday-fireworks",
     name: "Friday Fireworks Boat",
@@ -184,34 +212,6 @@ export const SERVICES: Service[] = [
       COMMON_ADDONS.soundHealing,
     ],
     calendlyUrl: CALENDLY.fridayFireworks,
-  },
-  {
-    id: "harbor-sauna",
-    slug: "harbor-sauna",
-    name: "Harbor Sauna Session",
-    tagline: "Dockside banya, no cruise — pure healing work",
-    description:
-      "Two-hour dockside banya with Ukrainian venik healing, ice bath, and natural cold-pressed juices. Groups of 5 or more.",
-    basePrice: 30,
-    priceUnit: "per_person",
-    minPeople: 5,
-    durationHours: 2,
-    schedule: "By appointment",
-    hero: "/media/harbor-sauna/hero.jpg",
-    includes: [
-      "2-hour banya session",
-      "Ukrainian venik healing work",
-      "Ice bath plunge",
-      "Natural juices",
-    ],
-    addOns: [
-      COMMON_ADDONS.food,
-      COMMON_ADDONS.healer,
-      COMMON_ADDONS.juices,
-      COMMON_ADDONS.massage,
-      COMMON_ADDONS.soundHealing,
-    ],
-    calendlyUrl: CALENDLY.harborSauna,
   },
   {
     id: "honeymoon",
